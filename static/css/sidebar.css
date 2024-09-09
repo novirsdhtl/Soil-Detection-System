@@ -1,0 +1,78 @@
+/*-- Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300..700&display=swap');
+
+/* Define color variables */
+:root {
+  --body-color: #f2e8de;
+  --sidebar-color: #f9f9f9;
+  --primary-color: #ac7d55;
+  --primary-color-light: #d5af8e;
+  --text-color-1: #000000;
+  --text-color-2: #ffffff;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--body-color);
+  color: var(--text-color-1);
+  padding: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.form-label {
+  font-weight: bold;
+}
+
+.btn {
+  display: block;
+  width: 100%;
+}
+
+.font-bold {
+  font-weight: 700; 
+}
+
+.navbar {
+  padding: 0.5rem 0.5rem;
+  background-color: #f8f9fa; 
+}
+
+.navbar-brand {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.navbar-brand img {
+  width: 40px; 
+  height: auto;
+}
+
+.navbar-nav .nav-link {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+}
+
+.btn-outline-danger {
+  padding: 0.30rem 0.70rem;
+  font-size: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .navbar-brand {
+      font-size: 1.25rem;
+  }
+
+  .navbar-nav .nav-link {
+      padding: 0.5rem 1rem;
+  }
+
+  .profile-icon {
+      width: 30px;
+      height: 30px;
+  }
+}
+
+
+

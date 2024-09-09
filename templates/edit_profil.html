@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}Edit Profil User{% endblock %}
+
+{% block content %}
+<div class="container mt-1" style="max-width: 600px;">
+    <h5 class="text-center" style="font-weight: bold;">Edit Profil</h5>
+    <p class="text-center text-muted">Update informasi profil Anda dengan mudah</p>
+    <form id="editProfileForm" method="POST">
+        <div class="form-group mb-4">
+            <label for="nama_lengkap" class="form-label">Nama Lengkap</label>
+            <input type="text" class="form-control rounded-pill p-2" id="nama_lengkap" name="nama_lengkap" 
+                value="{{ user.nama_lengkap }}" required style="background-color: #f0f3f7;">
+        </div>
+        <div class="form-group mb-4">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control rounded-pill p-2" id="username" name="username" 
+                value="{{ user.username }}" required style="background-color: #f0f3f7;">
+        </div>
+        <div class="form-group mb-4">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control rounded-pill p-2" id="email" name="email" 
+                value="{{ user.email }}" required style="background-color: #f0f3f7;">
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn btn-primary rounded-pill px-5 py-2" data-bs-toggle="modal" 
+                data-bs-target="#confirmModal" style="background-color: #ac7d55;">
+                Simpan Perubahan
+            </button>
+        </div>
+    </form>
+</div>
+
+<!-- Modal for confirmation -->
+<div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="confirmModalLabel">Konfirmasi Perubahan</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Anda yakin ingin merubah data profil?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+        <button type="button" class="btn btn-primary" id="confirmBtn">Ya, Simpan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    // JavaScript to handle the form submission after confirmation
+    document.getElementById('confirmBtn').addEventListener('click', function () {
+        document.getElementById('editProfileForm').submit();
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #F2E8DE;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 25px;
+    width: 300px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, .3);
+}
+
+.container h1 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.container label {
+    text-align: left;
+    color: #000000;
+    font-size: 14px;
+}
+
+.container form input {
+    width: calc(100% - 20px);
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #000000;
+    color: #000000;
+    font-size: 13px;
+}
+
+.password-field {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.show-password {
+    cursor: pointer;
+    color: #007bff;
+    font-size: 10px;
+    display: block;
+    margin-top: 2px;
+    text-align: left;
+}
+
+.container form button {
+    width: 100%;
+    padding: 5px 0;
+    border: none;
+    background-color: #B37442;
+    font-size: 14px;
+    color: #ffffff;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.regis {
+    font-size: 12px;
+    margin-bottom: 15px;
+}

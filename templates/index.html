@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Beranda</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <img src="{{ url_for('static', filename='images/Sprout.png') }}" alt="Logo" class="logo">
+            <h2>Selamat Datang di Sistem Deteksi Tanah!</h2>
+            <p>Deteksi jenis tanah Anda dan ketahui berbagai macam tanaman yang cocok untuk tanah Anda!</p>
+            <a href="{{ url_for('login') }}" class="btn">Login User</a>
+            <a href="{{ url_for('admin_login') }}" class="btn">Login Admin</a>
+        </section>
+    </main>
+</body>
+</html>

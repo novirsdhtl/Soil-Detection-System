@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}Halaman Prediksi{% endblock %}
+
+{% block content %}
+<div class="container mt-1">
+    <h6 class="keterangan">Hasil deteksi menunjukkan jenis tanah Anda ialah</h6>
+    <img src="{{ selected_image_url }}" alt="Selected Image" class="img-layout img-fluid" style="width: 400px; height: 250px;">
+    <div class="prediction-container mt-4">
+        <p>{{ result }} - {{ percentage|round(2) }}%</p>
+    </div>
+
+    <div class="button-recommendation">
+        <a href="{{ url_for('tanaman') }}" class="rekomendasi-btn">Lihat Rekomendasi Tanaman</a>
+    </div>
+</div>
+<div class="button-container">
+    <a href="{{ url_for('deteksi') }}" class="kembali-btn">Kembali</a>
+</div>
+
+{% endblock %}
+
+
+{% block styles %}
+<style>
+    .keterangan {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .img-layout {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 30px;
+        width: 400px; 
+    }
+    .prediction-container {
+        text-align: center;
+        background-color: #ac7d55;
+        padding: 10px 60px;
+        border-radius: 10px;
+        margin: 10px auto;
+        width: fit-content;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .prediction-container p {
+        margin: 0;
+        font-size: 15px;
+        font-weight: bold;
+        color: #ffffff;
+    }
+    .button-recommendation {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .rekomendasi-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ac7d55; 
+        color: #ffffff; 
+        font-size: 12px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none; 
+        margin-bottom: 50px;
+    }
+    .rekomendasi-btn:hover {
+        background-color: #d5af8e; 
+        color: #ffffff;
+    }
+    .kembali-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #ac7d55; 
+        color: #ffffff; 
+        font-size: 12px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none; 
+        margin-bottom: 50px;
+        margin-left: 20px;
+    }
+    .kembali-btn:hover {
+        background-color: #d5af8e; 
+        color: #ffffff;
+    }
+
+    .button-container {
+        padding-top: 10px;
+    }
+</style>
+{% endblock %}

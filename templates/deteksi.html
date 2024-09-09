@@ -1,0 +1,139 @@
+{% extends "layout.html" %}
+
+{% block title %}Halaman Deteksi{% endblock %}
+
+{% block content %}
+<main>
+    <section class="box-section">
+        <h6>Unggah foto tanah Anda untuk ketahui jenis tanah Anda dan dapatkan rekomendasi tanaman yang sesuai!</h6>
+        <form action="{{ url_for('deteksi') }}" method="post" enctype="multipart/form-data">
+            <div class="white-box" id="drop-zone" onclick="openFileDialog()">
+                <span id="upload-text">Unggah atau seret foto Anda di sini</span>
+                <input type="file" id="formFile" name="file" style="display: none;" accept="image/*" onchange="previewImage(event)">
+                <img id="preview" src="" alt="" style="display: none; max-width: 100%; max-height: 100%;">
+                <button id="remove-btn" style="display: none;" onclick="removeImage(event)">✖</button>
+            </div>
+            <button type="submit" id="process-btn" class="process-btn">Deteksi</button>
+        </form>
+    </section>
+</main>
+
+<script>
+    function openFileDialog() {
+        document.getElementById('formFile').click();
+    }
+
+    function previewImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                const preview = document.getElementById('preview');
+                const uploadText = document.getElementById('upload-text');
+                const removeBtn = document.getElementById('remove-btn');
+
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+                uploadText.style.display = 'none';
+                removeBtn.style.display = 'block';
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function removeImage(event) {
+        event.stopPropagation(); // Mencegah event onclick pada white-box
+        const preview = document.getElementById('preview');
+        const uploadText = document.getElementById('upload-text');
+        const removeBtn = document.getElementById('remove-btn');
+        const formFile = document.getElementById('formFile');
+
+        preview.src = '';
+        preview.style.display = 'none';
+        uploadText.style.display = 'block';
+        removeBtn.style.display = 'none';
+        formFile.value = '';
+    }
+
+    document.getElementById('drop-zone').addEventListener('dragover', function(event) {
+        event.preventDefault();
+    });
+
+    document.getElementById('drop-zone').addEventListener('drop', function(event) {
+        event.preventDefault();
+        const files = event.dataTransfer.files;
+        if (files.length > 0) {
+            const fileInput = document.getElementById('formFile');
+            fileInput.files = files;
+            previewImage({ target: fileInput });
+        }
+    });
+</script>
+
+{% block styles %}
+<style>
+    .header-bg {
+        background-color: #f9f9f9;
+        color: #000000;
+        padding: 20px;
+    }
+    .white-box {
+        width: 600px;
+        height: 350px;
+        background-color: #ffffff;
+        border-radius: 10px;
+        margin: 20px auto;
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        border: 2px dashed #ccc;
+        cursor: pointer;
+    }
+    .font-bold {
+        font-weight: 700;
+    }
+    .box-section {
+        text-align: center;
+    }
+    #upload-text {
+        cursor: pointer;
+        font-size: 14px;
+        color: #999;
+    }
+    #preview {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    #remove-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 255, 255, 0.8);
+        border: none;
+        cursor: pointer;
+        font-size: 20px;
+        color: #ff0000;
+        display: none;
+    }
+    .process-btn {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        background-color: #ac7d55;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: bold;
+    }
+    .process-btn:hover {
+        background-color: #d5af8e;
+    }
+</style>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}Profil User{% endblock %}
+
+{% block content %}
+<div class="container profile-container mt-5" style="max-width: 600px;">
+    <div class="text-center">
+        <div class="profile-info">
+            <h2>{{ user.nama_lengkap }}</h2>
+            <p class="text-muted">{{ user.username }}</p>
+            <p class="text-muted">{{ user.email }}</p>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="{{ url_for('edit_profil_user') }}" class="btn btn-primary rounded-pill px-4 py-2" 
+           style="background-color: #ac7d55;">
+            Edit Profil
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<style>
+    .profile-container {
+        background-color: #f0f3f7;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-info h2 {
+        margin-top: 10px;
+        font-weight: bold;
+        color: #000;
+    }
+
+    .profile-info p {
+        margin: 5px 0;
+        color: #6c757d;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .text-center a {
+        text-decoration: none;
+    }
+</style>
+{% endblock %}

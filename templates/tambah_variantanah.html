@@ -1,0 +1,25 @@
+{% extends "admin_layout.html" %}
+
+{% block title %}Tambah Varian Tanah{% endblock %}
+
+{% block content %}
+<div class="container mt-1">
+    <h4>Tambah Varian Tanah</h4>
+    <form method="POST">
+        <div class="mb-3">
+            <label for="jenis_tanah" class="form-label">Nama Tanah</label>
+            <input type="text" class="form-control" id="jenis_tanah" name="jenis_tanah" required>
+        </div>
+        <div class="mb-3">
+            <label for="deskripsi" class="form-label">Deskripsi</label>
+            <textarea class="form-control" id="deskripsi" name="deskripsi" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="gambar_tanah" class="form-label">Upload Gambar</label>
+            <input type="file" class="form-control" id="gambar_tanah" name="gambar_tanah" accept="image/*">
+        </div>
+        <button type="submit" class="btn btn-success">Simpan</button>
+        <a href="{{ url_for('lihat_variantanah') }}" class="btn btn-secondary">Batal</a>
+    </form>
+</div>
+{% endblock %}

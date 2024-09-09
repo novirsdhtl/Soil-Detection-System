@@ -1,0 +1,27 @@
+{% extends "admin_layout.html" %}
+
+{% block title %}Edit Varian Tanah{% endblock %}
+
+{% block content %}
+<div class="container mt-1">
+    <h4>Edit Varian Tanah</h4>
+    <form method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="jenis_tanah" class="form-label">Jenis Tanah</label>
+            <input type="text" class="form-control" id="jenis_tanah" name="jenis_tanah" value="{{ variant[1] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="deskripsi" class="form-label">Deskripsi</label>
+            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required>{{ variant[2] }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="gambar_tanah" class="form-label">Gambar Tanah</label>
+            <input type="file" class="form-control" id="gambar_tanah" name="gambar_tanah">
+            {% if variant[3] %}
+                <img src="data:image/jpeg;base64,{{ variant[3] }}" alt="Gambar Tanah" class="img-thumbnail mt-2" style="max-width: 200px;">
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+{% endblock %}

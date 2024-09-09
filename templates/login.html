@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div class="container">
+          <h1>Login</h1>
+            <form method="POST" action="{{ url_for('login') }}">
+              <label>Username</label><br>
+              <input type="text" name="username"><br>
+              <label>Password</label><br>
+              <div class="password-field">
+                <input type="password" name="password" id="password-field">
+                <span class="show-password" onclick="togglePasswordVisibility()">Show Password</span>
+            </div>
+              <button type="submit">Login</button>
+            </form>
+            <p class="regis">Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+    </div>  
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password-field");
+            var toggleButton = document.querySelector(".show-password");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleButton.textContent = "Hide Password";
+            } else {
+                passwordField.type = "password";
+                toggleButton.textContent = "Show Password";
+            }
+        }
+    </script>
+</body>
+</html>

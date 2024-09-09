@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+          <form action="" method="POST">
+              <label>Username</label><br>
+              <input type="text" name="username"><br>
+              <label>Password</label><br>
+              <div class="password-field">
+                  <input type="password" name="password" id="password-field">
+                  <span class="show-password" onclick="togglePasswordVisibility()">Show Password</span>
+              </div>
+              <label>Full Name</label><br>
+              <input type="text" name="fullname"><br>
+              <label>Email</label><br>
+              <input type="text" name="email"><br>
+              <button>Register</button>
+          </form>
+          {% if success %}
+          <div class="alert alert-success">
+              <strong>Success!</strong> Registration successful. You can now <a href="{{ url_for('login') }}">login</a>.
+          </div>
+          {% endif %}
+    </div>
+
+    <script>
+        function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password-field");
+            var toggleButton = document.querySelector(".show-password");
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                toggleButton.textContent = "Hide Password";
+            } else {
+                passwordField.type = "password";
+                toggleButton.textContent = "Show Password";
+            }
+        }
+    </script>
+</body>
+</html>

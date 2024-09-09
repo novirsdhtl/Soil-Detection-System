@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Halaman Login Admin</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
+   
+    <body>
+        <div class="container">
+          <h1>Login Admin</h1>
+            <form method="POST" action="{{ url_for('admin_login') }}">
+              <label>Username</label><br>
+              <input type="text" name="username"><br>
+              <label>Password</label><br>
+              <div class="password-field">
+                <input type="password" name="password" id="password-field">
+                <span class="show-password" onclick="togglePasswordVisibility()">Show Password</span>
+            </div>
+              <button type="submit">Login</button>
+            </form>
+        </div>  
+
+        <style>
+          *{
+            margin: 0;
+            padding: 0;
+            outline: 0;
+            font-family: 'Montserrat', sans-serif;
+          }
+
+          body{
+            height: 100vh;
+            background-color: #F2E8DE;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+          
+          .container{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            padding: 20px 25px;
+            width: 300px;
+          
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(255,255,255,.3);
+          }
+          .container h1{
+            text-align: center;
+            color: #000000;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 20px;
+          }
+          .container label{
+            text-align: left;
+            color: #000000;
+            font-size: 14px;
+          }
+          .container form input{
+            width: calc(100% - 20px);
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            border: none;
+            background-color: transparent;
+            border-bottom: 1px solid #000000;
+            color: #000000;
+            font-size: 13px;
+          }
+          .password-field {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        .show-password {
+            cursor: pointer;
+            color: #007bff;
+            font-size: 10px;
+            display: block;
+            margin-top: 2px;
+            text-align: left; 
+        }
+          .container form button{
+            width: 100%;
+            padding: 5px 0;
+            border: none;
+            background-color:#B37442;
+            font-size: 14px;
+            color: #ffffff;
+            border-radius: 5px;
+            margin-bottom: 20px;
+          }
+          .regis {
+            font-size: 12px;
+            margin-bottom: 15px;
+          }
+        </style>
+
+        <script>
+            function togglePasswordVisibility() {
+                var passwordField = document.getElementById("password-field");
+                var toggleButton = document.querySelector(".show-password");
+    
+                if (passwordField.type === "password") {
+                    passwordField.type = "text";
+                    toggleButton.textContent = "Hide Password";
+                } else {
+                    passwordField.type = "password";
+                    toggleButton.textContent = "Show Password";
+                }
+            }
+        </script>
+        
+    </body>
+</html>

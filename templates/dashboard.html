@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}Soil Detection System {% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h5 class="font-bold">Soil Detection and Crop Recommendation System</h5>
+</div>
+<h6>Deteksi jenis tanah Anda untuk ketahui berbagai macam tanaman menarik sesuai dengan jenis tanah Anda!!</h6>
+<div class="text-center">
+    <img src="{{ url_for('static', filename='images/bg_beranda.jpeg') }}" alt="Soil Img" class="img-fluid" style="max-width: 50%; height: auto; margin-top: 20px">
+</div>
+{% endblock %}

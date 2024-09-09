@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% block title %}Rekomendasi Tanaman{% endblock %}
+{% block content %}
+<h6 class="desk">Berikut adalah varian tanaman yang cocok untuk ditanam pada jenis tanah Anda!!</h6>
+<div class="container mt-4">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Gambar</th>
+                <th>Nama Tanaman</th>
+                <th>Deskripsi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tanaman in tanamans %}
+            <tr>
+                <td><img src="{{ url_for('static', filename=tanaman['gambar_tanaman']) }}" alt="Gambar {{ tanaman['nama_tanaman'] }}" class="img-thumbnail" style="width: 150px;"></td>
+                <td>{{ tanaman['nama_tanaman'] }}</td>
+                <td>{{ tanaman['deskripsi'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="button-container">
+    <a href="{{ url_for('deteksi') }}" class="kembali-btn">Deteksi Lagi</a>
+</div>
+
+{% endblock %}
+
+{% block styles %}
+<style>
+    .header-bg {
+        background-color: #f9f9f9;
+        color: #000000;
+        padding: 20px;
+    }
+    .font-bold {
+        font-weight: 700;
+    }
+    .img-thumbnail {
+        max-width: 100%;
+        height: auto;
+    }
+    .table th, .table td {
+        vertical-align: middle;
+        text-align: center;
+    }
+    .kembali-btn {
+        display: inline-block;
+        padding: 10px 10px;
+        background-color: #ac7d55;
+        color: #ffffff;
+        font-size: 12px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        margin-top: 20px;
+    }
+    .kembali-btn:hover {
+        background-color: #d5af8e;
+        color: #ffffff;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}Varian Tanah{% endblock %}
+
+{% block content %}
+<div class="container mt-1">
+    <h4 class="mb-4">Daftar Varian Tanah</h4>
+
+    <div class="row">
+        {% for tanah in tanah_list %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                {% if tanah[3] %}
+                <img src="data:image/jpeg;base64,{{ tanah[3] }}" class="card-img-top" alt="Gambar Tanah" >
+                {% else %}
+                <img src="{{ url_for('static', filename='images/default-image.png') }}" class="card-img-top" alt="Gambar Tanah">
+                {% endif %}
+                <div class="card-body">
+                    <h5 class="card-title">{{ tanah[1] }}</h5>
+                    <p class="card-text">{{ tanah[2] }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<style>
+    .card-img-top {
+        width: 100%;
+        height: 200px; 
+        object-fit: cover; 
+    }
+    .card-title {
+        text-align: center;
+    }
+    .card-text {
+        font-weight: normal;
+        text-align: justify;
+    }
+</style>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "admin_layout.html" %}
+
+{% block title %}Soil Detection System {% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-0.5 pb-2 mb-3 border-bottom">
+    <h5 class="font-bold">Hello Admin!</h5>
+</div>
+<h6>Soil Detection and Crop Recommendation System</h6>
+<div class="text-center">
+    <img src="{{ url_for('static', filename='images/bg_beranda.jpeg') }}" alt="Soil Img" class="img-fluid" style="max-width: 50%; height: auto; margin-top: 20px">
+</div>
+{% endblock %}
